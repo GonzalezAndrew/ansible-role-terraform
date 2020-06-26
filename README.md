@@ -1,3 +1,4 @@
+[![Actions Status](https://github.com/GonzalezAndrew/ansible-role-terraform/workflows/molecule_test/badge.svg)](https://github.com/GonzalezAndrew/ansible-role-terraform/actions)
 Role Name
 =========
 

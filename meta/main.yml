@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: terraform
   author: Andrew Gonzalez
   description: "Terraform for Linux"
   license: MIT
