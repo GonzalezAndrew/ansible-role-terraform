@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  pre_task:
+    - name: Update apt cache
+      apt: 
+        update_cache: true
+        cache_valid: 600
+      when: ansibel_os_family == 'Debian'
+
+  tasks:
+    - name: "Include ansible-role-terraform"
+      include_role:
+        name: "ansible-role-terraform"

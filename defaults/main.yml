@@ -1,0 +1,6 @@
+---
+terraform_version: 0.12.6
+terraform_bin_path: /usr/local/bin
+terraform_os: "linux"
+terraform_arch: "amd64" 
+terraform_download_url: " https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
