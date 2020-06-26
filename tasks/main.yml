@@ -1,24 +1,26 @@
 ---
 - name: Ensure unzip is installed
   package:
-    name: unzip
-    state: present
+      name: unzip
+      state: present
 
 - name: Check Terraform Version
   shell: |
-    if [ command -v terraform ];
-        terraform --version | head -n 1 | awk 'print $2'
-    fi
+      set -o pipefail
+      if [ command -v terraform ];
+          terraform --version | head -n 1 | awk 'print $2'
+      fi
   register: terraform_version_check
   changed_when: terraform_version_check.stdout != terraform_version
 
 - name: Download Terraform
   unarchive:
-    src: "{{}}"
-    dest: "{{ terraform_bin_path }}"
-    remote_src: true
+      src: "{{ terraform_download_url }}"
+      dest: "{{ terraform_bin_path }}"
+      remote_src: true
   when: terraform_version_check.stdout != terraform_version
 
 - name: Verify Terraform is installed
   shell: |
-    {{ terraform_bin_path }}/terraform --version
+      {{ terraform_bin_path }}/terraform --version
+  when: terraform_version_check.stdout != terraform_version

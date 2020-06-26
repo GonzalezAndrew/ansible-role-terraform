@@ -25,7 +25,7 @@ terraform_os: "linux"
 terraform_arch: "amd64"
 ```
 The system operating system and architecture to use.
-``` 
+```
 terraform_download_url: " https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
 ```
 The Teraform download url.

@@ -3,10 +3,10 @@
   hosts: all
   pre_tasks:
     - name: Update apt cache
-      apt: 
+      apt:
         update_cache: true
         cache_valid: 600
-      when: ansibel_os_family == 'Debian'
+      when: ansible_os_family == 'Debian'
 
   tasks:
     - name: "Include ansible-role-terraform"
