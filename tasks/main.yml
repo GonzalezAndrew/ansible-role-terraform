@@ -10,6 +10,7 @@
       terraform --version | head -n 1 | awk 'print $2'
   register: terraform_version_check
   changed_when: terraform_version_check.stdout != terraform_version
+  ignore_errors: true
 
 - name: Download Terraform
   unarchive:
