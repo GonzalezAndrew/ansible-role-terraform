@@ -12,7 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
               with:
-                  path: ansible-role-sonarqube
+                  path: ansible-role-terraform
             - name: Set up Python
               uses: actions/setup-python@v1
               with:
