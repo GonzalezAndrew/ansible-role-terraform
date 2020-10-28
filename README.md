@@ -1,6 +1,6 @@
 ![Build](https://github.com/GonzalezAndrew/ansible-role-terraform/workflows/Molecule/badge.svg)
 
-Role Name
+Terraform
 =========
 
 Installs Terraform a infrastructure as code software tool.
