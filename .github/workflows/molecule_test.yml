@@ -21,7 +21,7 @@ jobs:
               run: |
                   sudo apt install docker
                   python3 -m pip install --upgrade pip
-                  python3 -m pip install molecule yamllint ansible-lint docker
+                  python3 -m pip install molecule yamllint ansible-lint docker molecule-docker
             - name: Test with molecule
               run: |
                   molecule converge

@@ -5,7 +5,7 @@
       state: present
 
 - name: Check Terraform Version
-  shell: terraform --version | head -n 1 | awk '{print $2}'
+  command: terraform --version | head -n 1 | awk '{print $2}'
   register: terraform_version_check
   changed_when: terraform_version_check.stdout != terraform_version
   failed_when: false
@@ -15,8 +15,4 @@
       src: "{{ terraform_download_url }}"
       dest: "{{ terraform_bin_path }}"
       remote_src: true
-  when: terraform_version_check.stdout != terraform_version
-
-- name: Verify Terraform is installed
-  shell: {{ terraform_bin_path }}/terraform --version
   when: terraform_version_check.stdout != terraform_version
