@@ -5,6 +5,10 @@ name: CI
   push:
     branches:
       - master
+  defaults:
+  run:
+    working-directory: 'ansible-role-terraform'
+
 jobs:
     lint:
         runs-on: ubuntu-latest
