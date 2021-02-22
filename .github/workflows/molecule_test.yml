@@ -2,7 +2,27 @@
 name: Molecule
 on: [push]
 jobs:
-    build:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  path: ansible-role-terraform
+
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: '3.x'
+
+            - name: Install dependencies
+              run: pip3 install ansible yamllint ansible-lint
+
+            - name: Lint code 
+              run: | 
+                yamllint .
+                ansible-lint
+    molecule:
         runs-on: ubuntu-latest
         strategy:
             max-parallel: 4
@@ -20,15 +40,10 @@ jobs:
                   python-version: '3.x'
 
             - name: Install dependencies
-              run: pip3 install ansible molecule[docker] docker yamllint ansible-lint
-
-            - name: Lint code 
-              run: | 
-                yamllint .
-                ansible-lint
+              run: pip3 install ansible molecule[docker] docker
 
             - name: Test with molecule
-              run: molecule converge
+              run: molecule test
               env:
                   PY_COLORS: '1'
                   ANSIBLE_FORCE_COLOR: '1'
