@@ -8,3 +8,4 @@ rules:
 
 ignore: |
   .github/workflows/molecule_test.yml
+  ansible-role-terraform/.github/workflows/molecule_test.yml
