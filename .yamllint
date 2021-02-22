@@ -3,6 +3,8 @@ extends: default
 
 rules:
   line-length:
-    max: 180
+    max: 200
     level: warning
-  truthy: disable
+
+ignore: |
+  .github/workflows/molecule_test.yml
