@@ -5,12 +5,10 @@
       state: present
 
 - name: Check Terraform Version
-  shell: |
-      set -o pipefail
-      terraform --version | head -n 1 | awk '{print $2}'
+  shell: terraform --version | head -n 1 | awk '{print $2}'
   register: terraform_version_check
   changed_when: terraform_version_check.stdout != terraform_version
-  ignore_errors: true
+  failed_when: false
 
 - name: Download Terraform
   unarchive:
@@ -20,6 +18,5 @@
   when: terraform_version_check.stdout != terraform_version
 
 - name: Verify Terraform is installed
-  shell: |
-      {{ terraform_bin_path }}/terraform --version
+  shell: {{ terraform_bin_path }}/terraform --version
   when: terraform_version_check.stdout != terraform_version
