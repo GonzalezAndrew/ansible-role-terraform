@@ -7,7 +7,7 @@ name: Release
 
 defaults:
   run:
-    working-directory: "${{ github.event.repository.name }}"
+    working-directory: 'ansible-role-terraform'
 
 obs:
 

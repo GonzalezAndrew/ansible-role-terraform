@@ -8,7 +8,7 @@ name: CI
 
 defaults:
   run:
-    working-directory: "${{ github.event.repository.name }}"
+    working-directory: 'ansible-role-terraform'
 
 jobs:
     lint:
@@ -17,7 +17,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  path: "${{ github.event.repository.name }}"
+                  path: ansible-role-terraform
 
             - name: Set up Python
               uses: actions/setup-python@v2
@@ -41,7 +41,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  path: "${{ github.event.repository.name }}"
+                  path: ansible-role-terraform
 
             - name: Set up Python
               uses: actions/setup-python@v2
@@ -57,4 +57,4 @@ jobs:
                   PY_COLORS: '1'
                   ANSIBLE_FORCE_COLOR: '1'
                   MOLECULE_DISTRO: ${{ matrix.molecule_distro }}
-                  ROLE_NAME: "${{ github.event.repository.name }}"
+                  ROLE_NAME: 'ansible-role-terraform'
