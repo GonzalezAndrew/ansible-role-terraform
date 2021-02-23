@@ -7,5 +7,7 @@ rules:
     level: warning
 
 ignore: |
-  .github/workflows/molecule_test.yml
-  ansible-role-terraform/.github/workflows/molecule_test.yml
+  .github/
+  /.github/
+  ansible-role-terraform/.github/
+  /ansible-role-terraform/.github/

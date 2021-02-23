@@ -6,9 +6,8 @@
 
 - name: Verify Terraform is not installed
   package:
-    name:
-      - terraform
-    state: absent
+      name: terraform
+      state: absent
 
 - name: Download Terraform
   unarchive:
