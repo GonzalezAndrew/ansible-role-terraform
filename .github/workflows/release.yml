@@ -9,7 +9,7 @@ defaults:
   run:
     working-directory: 'ansible-role-terraform'
 
-obs:
+jobs:
 
   release:
     name: Release
@@ -18,7 +18,7 @@ obs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: "${{ github.repository }}"
+          path: ansible-role-terraform
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
